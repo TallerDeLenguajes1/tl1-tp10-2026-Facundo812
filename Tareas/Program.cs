@@ -1,6 +1,8 @@
 ﻿using EspacioTarea;
 using System.Runtime.CompilerServices;
 using System.Text.Json;
+using System;
+using System.IO;
 
 HttpClient client = new HttpClient();
 string url = "https://jsonplaceholder.typicode.com/todos/";
@@ -34,4 +36,6 @@ foreach(Tarea item in listaDeTareas){
 string json = JsonSerializer.Serialize(listaDeTareas);
 Console.WriteLine(json);
 
+string ruta = Directory.GetCurrentDirectory() + @"\tareas.json";
 
+File.WriteAllText(ruta,json);
